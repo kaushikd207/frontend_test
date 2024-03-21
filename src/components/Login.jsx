@@ -3,14 +3,11 @@ import { Link } from "react-router-dom";
 import "./Login.css";
 const Login = () => {
   const [visible, setVisible] = useState(false);
-  const [loginData, setLoginData] = useState([
-    { name: "", email: "", password: "test" },
-  ]);
+  const [loginData, setLoginData] = useState([{ email: "", password: "" }]);
   const handleSubmit = (event) => {
     event.preventDefault();
-  };
-  const handleInput = (e) => {
-    console.log(e.target.value);
+    console.log(loginData);
+    console.log(localStorage.getItem("user"));
   };
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -26,19 +23,25 @@ const Login = () => {
             <div className="inputBox">
               <label>Email</label>
               <input
+                name="email"
                 type="email"
                 placeholder="Enter"
-                value={loginData.email}
-                onChange={(e) => handleInput(e)}
+                value={loginData?.email}
+                onInput={(e) =>
+                  setLoginData({ ...loginData, ["email"]: e.target.value })
+                }
               />
             </div>
             <div className="inputBox">
               <label>Password</label>
               <input
+                name="password"
                 type={visible ? "text" : "password"}
                 placeholder="Enter"
-                value={loginData.password}
-                onChange={(e) => handleInput(e)}
+                value={loginData?.password}
+                onInput={(e) =>
+                  setLoginData({ ...loginData, ["password"]: e.target.value })
+                }
               />
               <p className="eye" onClick={() => setVisible(!visible)}>
                 Show

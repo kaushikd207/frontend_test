@@ -13,14 +13,18 @@ const SignUp = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (
-      loginData?.name !== "" ||
-      loginData?.email !== "" ||
+      loginData?.name !== "" &&
+      loginData?.email !== "" &&
       loginData?.password !== ""
     ) {
       const data = [{ ...loginData }];
       setLoginData({ name: "", email: "", password: "" });
+      localStorage.setItem("user", JSON.stringify(data));
       navigate("/Otp");
-    } else setWrongInput(true);
+    } else {
+      setWrongInput(true);
+      navigate("/signUp");
+    }
   };
 
   useEffect(() => {

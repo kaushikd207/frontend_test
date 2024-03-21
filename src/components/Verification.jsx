@@ -1,8 +1,10 @@
 import Otp from "./Otp";
 import "./Verification.css";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const Verification = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -15,8 +17,7 @@ const Verification = () => {
           <p>enter the 8digit code you have recieved on</p>
           <p>anu***@gmail.com</p>
           <Otp></Otp>
-
-          <button type="submit">VERIFY</button>
+          <button onClick={() => navigate("/login")}>VERIFY</button>
         </div>
       </div>
     </>
