@@ -1,13 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@558&display=swap");
+
+.loginContainerVer {
+  margin-top: 52px;
+  margin-bottom: 150px;
+  width: 576px;
+  height: 453px;
+  border-radius: 20px;
+  border: 1px solid #c1c1c1;
+}
+.lgnContainerVer {
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+h2 {
+  text-align: center;
+  font-size: 32px;
+}
+.inputBox {
+  padding-left: 50px;
+  width: 574px;
+  margin-bottom: 33px;
+  /* margin: auto; */
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+}
+button {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 51px;
+  cursor: pointer;
+  width: 468px;
+  height: 56px;
+  border-radius: 6px;
+  color: white;
+  background: black;
+}
+p {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  border-bottom: none;
+  font-weight: 400;
+  margin-top: 50px;
+}
 .MuiOtpInput-Box {
   margin: auto !important;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
   width: 452px;
 }
-button {
+.loginContainerVer button {
   margin-top: 60px;
 }
-.loginContainer {
+.loginContainerVer {
   height: 453px;
 }
 p {

@@ -17,11 +17,9 @@ const SignUp = () => {
       loginData?.email !== "" ||
       loginData?.password !== ""
     ) {
-      const data = [{ ...loginData, loginData }];
-      console.log("Login data", data);
-      localStorage.setItem("signUpData", JSON.stringify(data));
+      const data = [{ ...loginData }];
       setLoginData({ name: "", email: "", password: "" });
-      navigate("/login");
+      navigate("/Otp");
     } else setWrongInput(true);
   };
 

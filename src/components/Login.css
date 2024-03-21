@@ -14,7 +14,7 @@
   display: flex;
   justify-content: center;
 }
-h2 {
+.loginContainer h2 {
   text-align: center;
   font-size: 32px;
 }
@@ -25,12 +25,12 @@ h2 {
   /* align-items: center; */
   justify-content: center;
 }
-label {
+.loginContainer  label {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 400;
 }
-input {
+.loginContainer input {
   margin-top: 4px;
   padding-left: 10px;
   display: flex;
@@ -42,7 +42,7 @@ input {
 .wrongInput {
   border: 1px solid #c93131;
 }
-.inputBox {
+.loginContainer .inputBox {
   padding-left: 50px;
   width: 574px;
   margin-bottom: 33px;
@@ -51,7 +51,7 @@ input {
   display: flex;
   justify-content: center;
 }
-button {
+.loginContainer button {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -63,7 +63,7 @@ button {
   color: white;
   background: black;
 }
-p {
+.loginContainer p {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   text-align: center;
@@ -71,33 +71,33 @@ p {
   font-weight: 400;
   margin-top: 50px;
 }
-a {
+.loginContainer a {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 500;
   color: black;
 }
-.h3 {
+.loginContainer .h3 {
   text-align: center;
   margin: auto;
   font-family: "Inter", sans-serif;
   font-size: 24px;
   font-weight: 500;
 }
-.para {
+.loginContainer .para {
   font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 500;
   margin-top: 11px;
 }
-.eye {
+.loginContainer .eye {
   border-bottom: 1px solid black;
   margin-left: 410px;
   margin-top: 38px;
   position: absolute;
   cursor: pointer;
 }
-.eyeR {
+.loginContainer .eyeR {
   border-bottom: 1px solid black;
   margin-left: 465px;
   margin-top: -68px;

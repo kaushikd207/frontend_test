@@ -8,7 +8,6 @@ const Login = () => {
   ]);
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`The name you entered was: ${loginData?.name}`);
   };
   const handleInput = (e) => {
     console.log(e.target.value);

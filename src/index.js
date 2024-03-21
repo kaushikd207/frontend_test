@@ -14,6 +14,7 @@ const appRouter = createBrowserRouter([
     path: "/",
     element: <AppLayout />,
     children: [
+      { path: "/", element: <SignUp /> },
       { path: "/login", element: <Login /> },
       { path: "/signUp", element: <SignUp /> },
       { path: "/Cart", element: <Cart /> },
