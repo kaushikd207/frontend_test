@@ -7,7 +7,7 @@ import AppLayout from "./AppLayout";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Cart from "./components/Cart";
-
+import Verification from "./components/Verification";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const appRouter = createBrowserRouter([
   {
@@ -17,6 +17,7 @@ const appRouter = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/signUp", element: <SignUp /> },
       { path: "/Cart", element: <Cart /> },
+      { path: "/Otp", element: <Verification /> },
     ],
   },
 ]);

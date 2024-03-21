@@ -1,0 +1,15 @@
+.MuiOtpInput-Box {
+  margin: auto !important;
+  /* justify-content: center; */
+  align-items: center;
+  width: 452px;
+}
+button {
+  margin-top: 60px;
+}
+.loginContainer {
+  height: 453px;
+}
+p {
+  margin-top: 0px;
+}
