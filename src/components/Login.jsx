@@ -1,13 +1,18 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-const Login = () => {
+const Login = ({ loginInfo }) => {
+  const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
   const [loginData, setLoginData] = useState([{ email: "", password: "" }]);
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(loginData);
-    console.log(localStorage.getItem("user"));
+    const storedData = JSON.parse(localStorage.getItem("user") || "[]");
+    storedData.map((d) => {
+      d?.email === loginData?.email && d?.password === loginData?.password
+        ? navigate("/Cart")
+        : navigate("/signUp");
+    });
   };
   useEffect(() => {
     window.scrollTo(0, 0);

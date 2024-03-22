@@ -8,7 +8,9 @@ const Verification = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+  const changeRoute = () => {
+    navigate("/login");
+  };
   return (
     <>
       <div className="lgnContainerVer">
@@ -17,7 +19,7 @@ const Verification = () => {
           <p>enter the 8digit code you have recieved on</p>
           <p>anu***@gmail.com</p>
           <Otp></Otp>
-          <button onClick={() => navigate("/login")}>VERIFY</button>
+          <button onClick={() => changeRoute()}>VERIFY</button>
         </div>
       </div>
     </>
