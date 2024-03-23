@@ -584,105 +584,79 @@ const clientData = [
 ];
 
 export default function Cart() {
-  const [inputVal, setInputVal] = useState([]);
-  const [cartData, setCartData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(5);
-  const totalPages = Math.ceil(clientData.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentItems = clientData.slice(startIndex, endIndex);
-
   const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
 
-  const currentUser = localStorage.getItem("currentUser") || ""; // should redirect
+  const products = clientData.flat();
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const currentUser = localStorage.getItem("currentUser") || "";
+
+  const [selectedItems, setSelectedItems] = useState(() => {
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || {};
+    return savedCart[currentUser] || [];
+  });
 
   const handleChange = (event, value) => {
-    setItemsPerPage(5);
     setCurrentPage(value);
   };
 
-  const setValue = (newList) => {
-    // Set Current state
-    setInputVal(newList);
-    // Set localstorage
-    const oldCartObj = JSON.parse(localStorage.getItem("cart"));
-    const cartObj = { ...oldCartObj, [currentUser]: newList };
+  const handleCheckboxChange = (e) => {
+    const itemId = e.target.name;
+    const isChecked = e.target.checked;
+
+    const newSelectedItems = isChecked
+      ? [...selectedItems, itemId]
+      : selectedItems.filter((id) => id !== itemId);
+
+    setSelectedItems(newSelectedItems);
+
+    const cartObj = {
+      ...(JSON.parse(localStorage.getItem("cart")) || {}),
+      [currentUser]: newSelectedItems,
+    };
     localStorage.setItem("cart", JSON.stringify(cartObj));
   };
 
-  const handleChangeInput = (e) => {
-    const checkBox = e.target;
-    const itemId = checkBox.name;
-    let newList = [];
-
-    if (checkBox.checked) {
-      newList = [...inputVal, itemId];
-    } else {
-      newList = inputVal.filter((val) => val !== itemId);
-    }
-    setValue(newList);
-  };
-  const fetchData = () => {
-    const data = JSON.parse(localStorage.getItem("cart")) || {};
-    if (!!data[currentUser]) {
-      setCartData(data[currentUser]);
-    }
-  };
   useEffect(() => {
-    if (!currentUser) navigate("/login");
-  }, [currentUser]);
-  useEffect(() => {
-    fetchData();
-  }, []);
+    if (!currentUser) {
+      navigate("/login");
+    }
+  }, [currentUser, navigate]);
 
-  console.log("inpValue", currentUser);
+  const currentItems = products.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   return (
     <>
       <div className="cartContainer">
         <h2>Please mark your interests!</h2>
         <p>We will keep you notified</p>
-        <table>
+        <div>
           <h4>My saved interests!</h4>
-          <tr>
-            {clientData[0]?.map((d) => {
-              return (
-                <div
-                  key={d.id}
-                  style={{
-                    display: "flex",
-                    width: "150px",
-                  }}
-                >
-                  {console.log(
-                    "cartdattt",
-                    cartData.includes(d.id.toString()),
-                    typeof d.id,
-                    cartData
-                  )}
-                  <input
-                    style={{ margin: "20px" }}
-                    name={d.id}
-                    checked={cartData.includes(d.id.toString())}
-                    onChange={handleChangeInput}
-                    type="checkbox"
-                  />
-                  <td style={{ margin: "20px" }}>{d?.title}</td>
-                </div>
-              );
-            })}
-          </tr>
+          {currentItems.map((d) => (
+            <div key={d.id} style={{ display: "flex", width: "150px" }}>
+              <input
+                style={{ margin: "20px" }}
+                name={d.id.toString()}
+                checked={selectedItems.includes(d.id.toString())}
+                onChange={handleCheckboxChange}
+                type="checkbox"
+              />
+              <span style={{ margin: "20px" }}>{d?.title}</span>
+            </div>
+          ))}
           <div className="pagination">
             <Pagination
               count={totalPages}
               page={currentPage}
-              showFirstButton
               size="small"
-              showLastButton
               onChange={handleChange}
-            ></Pagination>
+            />
           </div>
-        </table>
+        </div>
       </div>
     </>
   );

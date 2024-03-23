@@ -50,8 +50,6 @@ const SignUp = () => {
     }
   };
 
-
-
   return (
     <>
       <div className="lgnContainer">

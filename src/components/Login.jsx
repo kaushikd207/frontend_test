@@ -7,25 +7,18 @@ const Login = ({ loginInfo }) => {
   const [loginData, setLoginData] = useState([{ email: "", password: "" }]);
   const [localData, setLocalData] = useState([]);
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const storedData = JSON.parse(localStorage.getItem("users") || "[]");
-
-
     const isMatch = storedData.findIndex(
       (d) =>
         d?.email === loginData?.email && d?.password === loginData?.password
     );
-
-    if (isMatch){
-      localStorage.setItem('currentUser',loginData.email)
+    if (isMatch >= 0) {
+      localStorage.setItem("currentUser", loginData.email);
       navigate("/Cart");
-    }
-    else navigate("/signUp");
+    } else navigate("/signUp");
   };
-
 
   return (
     <>
