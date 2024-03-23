@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@558&display=swap");
+
+.loginContainer {
+  margin-top: 52px;
+  margin-bottom: 150px;
+  width: 576px;
+  height: 691px;
+  border-radius: 20px;
+  border: 1px solid #c1c1c1;
+}
+.lgnContainer {
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.loginContainer h2 {
+  text-align: center;
+  font-size: 32px;
+}
+.inputField {
+  width: 456px;
+  height: 74px;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+.loginContainer  label {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+.loginContainer input {
+  margin-top: 4px;
+  padding-left: 10px;
+  display: flex;
+  height: 48px;
+  width: 456px;
+  border: 1px solid #c1c1c1;
+  border-radius: 6px;
+}
+.wrongInput {
+  border: 1px solid #c93131;
+}
+.loginContainer .inputBox {
+  padding-left: 50px;
+  width: 574px;
+  margin-bottom: 33px;
+  /* margin: auto; */
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+}
+.loginContainer button {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 51px;
+  cursor: pointer;
+  width: 468px;
+  height: 56px;
+  border-radius: 6px;
+  color: white;
+  background: black;
+}
+.loginContainer p {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  border-bottom: none;
+  font-weight: 400;
+  margin-top: 50px;
+}
+.loginContainer a {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+}
+.loginContainer .h3 {
+  text-align: center;
+  margin: auto;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+.loginContainer .para {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 11px;
+}
+.loginContainer .eye {
+  border-bottom: 1px solid black;
+  margin-left: 410px;
+  margin-top: 38px;
+  position: absolute;
+  cursor: pointer;
+}
+.loginContainer .eyeR {
+  border-bottom: 1px solid black;
+  margin-left: 465px;
+  margin-top: -68px;
+  position: absolute;
+  cursor: pointer;
+}

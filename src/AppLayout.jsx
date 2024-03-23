@@ -1,7 +1,10 @@
+import Header from "./components/Header";
+import { Outlet } from "react-router-dom";
 const AppLayout = () => {
   return (
     <>
-      <h2>her we are</h2>
+      <Header />
+      <Outlet />
     </>
   );
 };
