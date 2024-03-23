@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@558&display=swap");
+
+.cartContainer {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  width: 576px;
+  border: 1px solid #c1c1c1;
+  border-radius: 20px;
+}
+.cartContainer h2 {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  font-size: 32px;
+}
+.cartContainer p {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+.cartContainer h4 {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin-left: 60px;
+}
+.MuiPagination-ul {
+  width: 500px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: -158px;
+  margin-left: -109px;
+}
+.MuiPagination-ul li {
+  display: flex;
+  width: 25px;
+}
+/* .MuiStack-root {
+  align-items: center;
+  margin-right: 277px;
+}  */

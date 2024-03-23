@@ -25,7 +25,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
   const [wrongInput, setWrongInput] = useState(false);
-  const [loginInfo, setLoginInfo] = useState(false);
+
   const [loginData, setLoginData] = useState({
     name: "",
     email: "",
@@ -40,9 +40,9 @@ const SignUp = () => {
       loginData?.email !== "" &&
       loginData?.password !== ""
     ) {
-      let get = JSON.parse(localStorage.getItem("user") || "[]");
+      let get = JSON.parse(localStorage.getItem("users") || "[]");
       abc = [...get, loginData];
-      localStorage.setItem("user", JSON.stringify(abc));
+      localStorage.setItem("users", JSON.stringify(abc));
       navigate("/Otp");
     } else {
       setWrongInput(true);
@@ -50,15 +50,7 @@ const SignUp = () => {
     }
   };
 
-  useEffect(() => {
-    const storedData = JSON.parse(localStorage.getItem("user") || "[]");
-    if (storedData.length !== 0) {
-      setLoginInfo(true);
-    } else {
-      setLoginInfo(false);
-    }
-    window.scrollTo(0, 0);
-  }, []);
+
 
   return (
     <>

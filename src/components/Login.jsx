@@ -5,18 +5,28 @@ const Login = ({ loginInfo }) => {
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
   const [loginData, setLoginData] = useState([{ email: "", password: "" }]);
+  const [localData, setLocalData] = useState([]);
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const storedData = JSON.parse(localStorage.getItem("user") || "[]");
-    storedData.map((d) => {
-      d?.email === loginData?.email && d?.password === loginData?.password
-        ? navigate("/Cart")
-        : navigate("/signUp");
-    });
+
+    const storedData = JSON.parse(localStorage.getItem("users") || "[]");
+
+
+    const isMatch = storedData.findIndex(
+      (d) =>
+        d?.email === loginData?.email && d?.password === loginData?.password
+    );
+
+    if (isMatch){
+      localStorage.setItem('currentUser',loginData.email)
+      navigate("/Cart");
+    }
+    else navigate("/signUp");
   };
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
+
   return (
     <>
       <div className="lgnContainer">
